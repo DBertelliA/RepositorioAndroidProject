@@ -22,12 +22,15 @@ class Controlador (val actividad: MainActivity) : Operaciones {
         dialogo.setListener(this)
         actividad.myButtonAdd.setOnClickListener {
             dialogo.show(0)
+            actividad.updateContent(actividad.showState())
         }
         actividad.myButtonDel.setOnClickListener {
             dialogo.show(1)
+            actividad.updateContent(actividad.showState())
         }
         actividad.myButtonUpdate.setOnClickListener {
             dialogo.show(2)
+            actividad.updateContent(actividad.showState())
         }
         actividad.textV.setText(showData())
     }
@@ -47,7 +50,7 @@ class Controlador (val actividad: MainActivity) : Operaciones {
         return false
     }
 
-    fun editClientController(idC : Int, nombreC : String) : Boolean{
+    fun editClientController(idC : Int, nombreC : String, apellidos: String, telefono: String) : Boolean{
         val findClient : Client? = mutableListOfPeople.find {it.id == idC}
         return findClient?.let {
             it.nombre = nombreC
@@ -60,14 +63,14 @@ class Controlador (val actividad: MainActivity) : Operaciones {
 
     fun showData() = mutableListOfPeople.toString()
 
-    override fun clientAdd(id: Int, nombre: String) {
-        insertClientController(Client(id,nombre))
+    override fun clientAdd(id: Int, nombre: String, apellidos : String, telefono : String) {
+        insertClientController(Client(id,nombre,apellidos, telefono))
 
         Log.d(TAG, "El cliente $id y nombre $nombre ${showData()}")
     }
 
-    override fun clientEdit(id: Int, nombre: String) {
-        editClientController(id, nombre)
+    override fun clientEdit(id: Int, nombre: String, apellidos: String, telefono: String){
+        editClientController(id, nombre, apellidos, telefono)
         Log.d(TAG, "El cliente $id tiene nombre $nombre editado ${showData()}")
 
     }

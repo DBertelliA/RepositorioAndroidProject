@@ -30,6 +30,13 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    fun showState(): String {
+        Log.d(TAG, "Esta es la nueva data" + cont.showData())
+        return cont.showData()
+    }
 
+    fun updateContent(text1: String){
+        textV.text = text1;
+    }
 
 }

@@ -27,19 +27,27 @@ class Dialog {
         }
     }
 
-    private fun addClient(id : Int = (Math.random() + 99).roundToInt(), nombre : String = "Ni puta idea"){
-        listener!!.clientAdd(id, nombre)
-        listener.toString()
+    private fun addClient(
+        id: Int = 100,
+        nombre: String = "Ni idea",
+        apellido: String = "Obra maestra",
+        telefono: String = "cccccccccc"
+    ) {
+        listener!!.clientAdd(id, nombre, apellido, telefono)
     }
 
-    private fun onDelete(id : Int){
+    private fun onDelete(id: Int) {
         listener!!.deleteClient(id)
-        listener.toString()
     }
 
-    private fun onEdit(id : Int, nombre : String){
-        listener!!.clientEdit(id, nombre)
-        listener.toString()
+    private fun onEdit(
+        id: Int,
+        nombre: String,
+        apellido: String = "Obra maestra",
+        telefono: String = "cccccccccc"
+    ) {
+        listener!!.clientEdit(id, nombre, apellido, telefono)
     }
+
 
 }
