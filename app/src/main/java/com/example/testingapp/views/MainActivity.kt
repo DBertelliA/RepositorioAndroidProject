@@ -25,19 +25,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Log.d(TAG, "Esto es el mensaje de inicio log")
-        start()
-    }
-
-    public fun start(){
-        myButtonAdd = findViewById(R.id.myButtonAdd)
-        myButtonDel = findViewById(R.id.myButtonDel)
-        myButtonUpdate = findViewById(R.id.myButtonUpdate)
-
-        textV = findViewById(R.id.myText)
         cont = Controlador(this)
         cont.start()
     }
-
 
 
 

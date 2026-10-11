@@ -2,6 +2,7 @@ package com.example.testingapp.interfaces
 
 import android.util.Log
 import com.example.testingapp.Data.ClientsRepo
+import com.example.testingapp.R
 import com.example.testingapp.interfaces.Inter.Operaciones
 import com.example.testingapp.views.Dialog
 import com.example.testingapp.views.MainActivity
@@ -13,6 +14,11 @@ class Controlador (val actividad: MainActivity) : Operaciones {
     private var mutableListOfPeople : MutableList<Client> =  ClientsRepo.listaCLientes.toMutableList()
     var dialogo = Dialog()
     fun start(){
+        actividad.myButtonAdd = actividad.findViewById(R.id.myButtonAdd)
+        actividad.myButtonDel = actividad.findViewById(R.id.myButtonDel)
+        actividad.myButtonUpdate = actividad.findViewById(R.id.myButtonUpdate)
+
+        actividad.textV = actividad.findViewById(R.id.myText)
         dialogo.setListener(this)
         actividad.myButtonAdd.setOnClickListener {
             dialogo.show(0)
